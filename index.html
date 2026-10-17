@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
 <meta name="theme-color" content="#0b1120">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<title>划船间歇冲刺计时器 V9</title>
+<title>划船间歇冲刺计时器 V10</title>
 <style>
 :root{--bg:#0b1120;--bg2:#111a2e;--card:rgba(255,255,255,.05);--card2:rgba(255,255,255,.08);
 --bd:rgba(255,255,255,.09);--txt:#f2f4f8;--sub:rgba(255,255,255,.55);--dim:rgba(255,255,255,.32);
@@ -16,11 +16,12 @@ background:linear-gradient(160deg,var(--bg),var(--bg2));color:var(--txt);min-hei
 #app{max-width:430px;margin:0 auto;padding:14px 14px 32px}
 header{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:4px 2px 14px}
 .brand{min-width:0}
-.brand h1{margin:0;font-size:17px;font-weight:600;letter-spacing:.5px}
+.brand h1{margin:0;font-size:17px;font-weight:600;letter-spacing:.5px;white-space:nowrap}
 .brand p{margin:2px 0 0;font-size:10px;letter-spacing:2.5px;color:var(--org);font-weight:500}
-.toolbar{display:flex;gap:6px;flex-shrink:0}
-.tbtn{height:30px;padding:0 10px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);
-color:var(--sub);font-size:11px;transition:background .15s}
+.toolbar{display:flex;gap:5px;flex-shrink:0;flex-wrap:nowrap}
+.tbtn{height:30px;padding:0 8px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);
+color:var(--sub);font-size:11px;transition:background .15s;white-space:nowrap;line-height:1;
+flex-shrink:0;display:inline-flex;align-items:center;justify-content:center}
 .tbtn.on{background:color-mix(in srgb,var(--org) 22%,transparent);border-color:color-mix(in srgb,var(--org) 45%,transparent);color:var(--org)}
 .tbtn:active{background:var(--card2)}
 .card{background:var(--card);border:.5px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}
@@ -50,11 +51,11 @@ border:.5px solid var(--bd);background:var(--card2);font-size:11px}
 .vtest{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
 .vtest label{font-size:11px;color:var(--sub);flex:1}
 .vtest button{height:28px;padding:0 12px;border:.5px solid color-mix(in srgb,var(--org) 50%,transparent);
-border-radius:8px;background:color-mix(in srgb,var(--org) 16%,transparent);color:var(--org);font-size:11px;font-weight:500}
+border-radius:8px;background:color-mix(in srgb,var(--org) 16%,transparent);color:var(--org);font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0}
 .sens{display:flex;align-items:center;justify-content:space-between;margin-top:12px;gap:8px}
 .sens label{font-size:11px;color:var(--sub)}
 .seg{display:flex;gap:4px}
-.seg button{height:26px;padding:0 10px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);color:var(--sub);font-size:11px}
+.seg button{height:26px;padding:0 10px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);color:var(--sub);font-size:11px;white-space:nowrap}
 .seg button.sel{background:color-mix(in srgb,var(--org) 22%,transparent);border-color:var(--org);color:var(--org)}
 .start{width:100%;height:46px;margin-top:14px;border:0;border-radius:12px;font-size:15px;font-weight:600;
 background:linear-gradient(135deg,var(--org),var(--org2));color:#1a1206;letter-spacing:1px;box-shadow:0 6px 18px rgba(243,160,76,.22)}
@@ -63,10 +64,15 @@ background:linear-gradient(135deg,var(--org),var(--org2));color:#1a1206;letter-s
 .hrow{padding:10px 0;border-bottom:.5px solid var(--bd)}
 .hrow:last-child{border-bottom:0}
 .htop{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.htop b{font-size:12.5px;font-weight:600}
-.htag{height:18px;display:inline-flex;align-items:center;border-radius:999px;padding:0 7px;font-size:9.5px;font-weight:600;flex-shrink:0}
+.htop b{font-size:12.5px;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.htop .r{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.htag{height:18px;display:inline-flex;align-items:center;border-radius:999px;padding:0 7px;font-size:9.5px;font-weight:600;flex-shrink:0;white-space:nowrap}
 .htag.ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok);border:.5px solid color-mix(in srgb,var(--ok) 40%,transparent)}
 .htag.ab{background:color-mix(in srgb,var(--red) 18%,transparent);color:var(--red);border:.5px solid color-mix(in srgb,var(--red) 40%,transparent)}
+.del{height:20px;padding:0 8px;border:.5px solid color-mix(in srgb,var(--red) 45%,transparent);
+border-radius:6px;background:color-mix(in srgb,var(--red) 12%,transparent);color:var(--red);
+font-size:10px;flex-shrink:0;white-space:nowrap;line-height:1;display:inline-flex;align-items:center;justify-content:center}
+.del:active{filter:brightness(1.2)}
 .hmid{display:flex;gap:12px;margin-top:5px;font-size:10.5px;color:var(--dim)}
 .hmid span i{font-style:normal;color:var(--sub)}
 .hset{margin-top:7px;display:flex;flex-wrap:wrap;gap:5px}
@@ -75,15 +81,17 @@ border-radius:6px;padding:2px 6px}
 .hset em b{color:var(--org);font-weight:600}
 .hset em.v{color:var(--vio)}
 .hset em.p{color:var(--teal)}
+.empty{color:var(--dim);font-size:11px;padding:6px 0}
 #viewRun{display:none}
-.status{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-.status .tag{height:24px;display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:0 11px;font-size:11px;font-weight:600}
+.status{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;gap:8px}
+.status .tag{height:24px;display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:0 11px;font-size:11px;font-weight:600;white-space:nowrap}
 .status .tag::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
 .tag.warm{background:color-mix(in srgb,var(--teal) 15%,transparent);color:var(--teal);border:.5px solid color-mix(in srgb,var(--teal) 40%,transparent)}
 .tag.work{background:color-mix(in srgb,var(--red) 15%,transparent);color:var(--red);border:.5px solid color-mix(in srgb,var(--red) 40%,transparent)}
 .tag.rest{background:color-mix(in srgb,var(--teal) 15%,transparent);color:var(--teal);border:.5px solid color-mix(in srgb,var(--teal) 40%,transparent)}
 .tag.await{background:color-mix(in srgb,var(--vio) 15%,transparent);color:var(--vio);border:.5px solid color-mix(in srgb,var(--vio) 40%,transparent)}
-.cancel{height:24px;padding:0 10px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);color:var(--sub);font-size:10.5px}
+.cancel{height:24px;padding:0 10px;border:.5px solid var(--bd);border-radius:8px;background:var(--card);
+color:var(--sub);font-size:10.5px;white-space:nowrap;flex-shrink:0;display:inline-flex;align-items:center;justify-content:center}
 .timerwrap{text-align:center;padding:18px 0 14px;border-radius:16px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:.5px solid var(--bd)}
 .timer{font-size:84px;font-weight:600;line-height:1;letter-spacing:1px;font-variant-numeric:tabular-nums;margin:8px 0 4px}
 .timer.work{color:var(--red)} .timer.warm{color:var(--teal)} .timer.rest{color:var(--teal)} .timer.await{color:var(--vio)}
@@ -102,7 +110,7 @@ color:var(--vio);font-size:17px;font-weight:600;letter-spacing:1px;animation:bre
 @keyframes breath{0%,100%{transform:scale(1)}50%{transform:scale(.985)}}
 .big:active{filter:brightness(1.1)}
 .runbtns{display:flex;gap:8px;margin-top:10px}
-.runbtns button{flex:1;height:38px;border-radius:10px;font-size:12px;font-weight:500}
+.runbtns button{flex:1;height:38px;border-radius:10px;font-size:12px;font-weight:500;white-space:nowrap}
 .skipwarm{border:.5px solid color-mix(in srgb,var(--teal) 40%,transparent);background:color-mix(in srgb,var(--teal) 12%,transparent);color:var(--teal)}
 .endall{border:.5px solid color-mix(in srgb,var(--red) 40%,transparent);background:color-mix(in srgb,var(--red) 12%,transparent);color:var(--red)}
 .demo{text-align:center;font-size:10px;color:var(--dim);margin-top:14px;line-height:1.6}
@@ -111,7 +119,7 @@ color:var(--vio);font-size:17px;font-weight:600;letter-spacing:1px;animation:bre
 <body>
 <div id="app">
 <header>
-  <div class="brand"><h1>划船间歇冲刺计时器 <span style="font-size:10px;font-weight:400;color:var(--sub);letter-spacing:.5px;vertical-align:middle">V9</span></h1><p>ROWING·INTERVAL·SPRINT</p></div>
+  <div class="brand"><h1>划船间歇冲刺计时器 <span style="font-size:10px;font-weight:400;color:var(--sub);letter-spacing:.5px;vertical-align:middle">V10</span></h1><p>ROWING·INTERVAL·SPRINT</p></div>
   <div class="toolbar">
     <button class="tbtn" id="btnAwake">常亮待机</button>
     <button class="tbtn" id="btnExport">下载</button>
@@ -169,70 +177,93 @@ color:var(--vio);font-size:17px;font-weight:600;letter-spacing:1px;animation:bre
     </div>
   </div>
 </section>
-<div class="demo" id="demo">· 版本 V9 · 修复组号递增与重复播报 · 语音识别自动重启 · 每组冲刺播报「第 X 组」</div>
+<div class="demo" id="demo">· 版本 V10 · 历史记录可删除 · 冲刺/休息最后 5 秒语音报数 · 返回按钮样式修复</div>
 </div>
 <script>
 const $=s=>document.querySelector(s);
 const P=[{w:5,wk:60,r:60,s:5,n:'入门冲刺'},{w:5,wk:110,r:180,s:6,n:'距离冲刺 250m'},{w:5,wk:40,r:120,s:8,n:'进阶冲刺'}];
 let plan=0,sens='mid',hist=[];
 try{hist=JSON.parse(localStorage.getItem('rit_hist')||'[]')}catch(e){}
+if(!hist.length){hist=[{d:'10月15日 19:16',n:'入门冲刺',done:5,tot:5,ok:true,total:'15分12秒',wk:60,r:60,rests:[68,72,96,75],acts:['语音','语音','语音','拍击']},{d:'10月13日 21:01',n:'入门冲刺',done:2,tot:6,ok:false,total:'34秒',wk:10,r:10,rests:[20],acts:['语音']}]}
 const rec=()=>{const p=P[plan];return{w:Math.max(0,parseFloat($('#inWarm').value||0)),wk:Math.max(5,parseInt($('#inWork').value)||60),r:Math.max(5,parseInt($('#inRest').value)||60),s:Math.max(1,Math.min(20,parseInt($('#inSets').value)||5))}};
 function fmt(sec){sec=Math.max(0,Math.ceil(sec));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
-function speak(text){try{const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=1;u.pitch=1;const vs=speechSynthesis.getVoices();const v=vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('zh')===0)||vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('cmn')===0);if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
+function speak(text,queue){try{const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=1;u.pitch=1;
+const vs=speechSynthesis.getVoices();const v=vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('zh')===0)||vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('cmn')===0);
+if(v)u.voice=v;if(!queue)speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
 function voiceUI(ok,msg){const el=$('#vst'),tx=$('#vstText');el.className='vst '+(ok?'live':ok===false?'dead':'');tx.textContent=msg||(ok?'语音识别：聆听中':'语音识别：已停止，恢复中…')}
 function renderSum(){const c=rec();$('#sum').innerHTML='';const a=[['热身',c.w+' 分'],['冲刺',c.wk+' 秒'],['休息',c.r+' 秒'],['组数',c.s+' 组']];a.forEach(x=>{const s=document.createElement('span');s.className='chip';s.innerHTML=x[0]+' <b>'+x[1]+'</b>';$('#sum').appendChild(s)})}
-function renderHist(){const ul=$('#hist');ul.innerHTML='';if(!hist.length){ul.innerHTML='<li class="hrow" style="color:var(--dim);font-size:11px">暂无记录</li>';return}
-hist.slice().reverse().forEach(h=>{const li=document.createElement('li');li.className='hrow';
+function renderHist(){const ul=$('#hist');ul.innerHTML='';
+if(!hist.length){ul.innerHTML='<li class="empty">暂无记录</li>';return}
+hist.slice().reverse().forEach((h,i)=>{const orig=hist.length-1-i;const li=document.createElement('li');li.className='hrow';
 const pct=Math.round(h.done/h.tot*100);
-let setHtml='';(h.rests||[]).forEach((r,i)=>{setHtml+='<em>第'+(i+1)+'组休 <b>'+r+'</b>s <span class='+((h.acts&&h.acts[i]==='语音')?'v':(h.acts&&h.acts[i]==='拍击')?'p':'')+'>'+((h.acts&&h.acts[i])||'-')+'</span></em>'});
-li.innerHTML='<div class="htop"><b>'+h.n+'</b><span class="htag '+(h.ok?'ok':'ab')+'">'+(h.ok?'完成 ':'提前结束 ')+h.done+'/'+h.tot+' · '+pct+'%</span></div>'+
+let setHtml='';(h.rests||[]).forEach((r,j)=>{setHtml+='<em>第'+(j+1)+'组休 <b>'+r+'</b>s <span class='+((h.acts||[])[j]==='语音'?'v':(h.acts||[])[j]==='拍击'?'p':'')+'>'+((h.acts||[])[j]||'-')+'</span></em>'});
+li.innerHTML='<div class="htop"><b>'+h.n+'</b><span class="r"><span class="htag '+(h.ok?'ok':'ab')+'">'+(h.ok?'完成 ':'提前结束 ')+h.done+'/'+h.tot+' · '+pct+'%</span><button class="del" data-i="'+orig+'">删除</button></span></div>'+
 '<div class="hmid"><span>'+h.d+'</span><span>总时长 <i>'+h.total+'</i></span><span>训练 <i>'+h.wk+'s</i> / 休息 <i>'+h.r+'s</i></span></div>'+
-'<div class="hset">'+setHtml+'</div>';ul.appendChild(li)})}
+'<div class="hset">'+setHtml+'</div>';ul.appendChild(li)});
+ul.querySelectorAll('.del').forEach(b=>b.addEventListener('click',()=>{const idx=+b.dataset.i;if(!confirm('确定删除这条记录？删除后无法恢复。'))return;hist.splice(idx,1);try{localStorage.setItem('rit_hist',JSON.stringify(hist))}catch(e){}renderHist()}))}
 document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>{plan=+b.dataset.p;document.querySelectorAll('.preset').forEach(x=>x.classList.remove('sel'));b.classList.add('sel');const p=P[plan];$('#inWarm').value=p.w;$('#inWork').value=p.wk;$('#inRest').value=p.r;$('#inSets').value=p.s;renderSum()}));
 ['inWarm','inWork','inRest','inSets'].forEach(id=>$('#'+id).addEventListener('input',renderSum));
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{sens=b.dataset.s;document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')}));
 let wl=null;
-$('#btnAwake').addEventListener('click',()=>{const on=$('#btnAwake').classList.toggle('on');if(on){if('wakeLock' in navigator){navigator.wakeLock.request('screen').then(l=>{wl=l}).catch(()=>$('#btnAwake').classList.remove('on'))}}else if(wl){try{wl.release()}catch(e){};wl=null}});
+$('#btnAwake').addEventListener('click',()=>{const on=$('#btnAwake').classList.toggle('on');
+if(on){if('wakeLock' in navigator){navigator.wakeLock.request('screen').then(l=>{wl=l}).catch(()=>$('#btnAwake').classList.remove('on'))}}
+else if(wl){try{wl.release()}catch(e){};wl=null}});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&$('#btnAwake').classList.contains('on')&&'wakeLock' in navigator){navigator.wakeLock.request('screen').then(l=>wl=l).catch(()=>{})}});
 $('#btnTestVoice').addEventListener('click',()=>{speak('第 1 组，开始');setTimeout(()=>speak('第 2 组，开始'),1600)});
 $('#btnExport').addEventListener('click',()=>{let csv='日期,计划,完成组数,总组数,完成率,总时长,每组训练s,组间休息s,各组实际休息s,激活方式\n';hist.forEach(h=>{csv+=[h.d,h.n,h.done,h.tot,h.ok?'是':'否',h.total,h.wk,h.r,(h.rests||[]).join('/'),(h.acts||[]).join('/')].join(',')+'\n'});try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='rowing-history.csv';a.click()}catch(e){}});
-let st='idle',cfg=null,endTs=0,cur=0,lastRest=0,tick=null,restArr=[],actArr=[];
+let st='idle',cfg=null,endTs=0,cur=0,lastRest=0,lastAct='',tick=null,restArr=[],actArr=[],lastCount=0;
 function stopTick(){if(tick){clearInterval(tick);tick=null}}
-function setPhase(cl,txt){$('#phaseTag').className='tag '+cl;$('#phaseTag').textContent=txt;$('#timer').className='timer '+cl;const s=cl==='work'?'var(--red)':cl==='await'?'var(--vio)':'var(--teal)';$('#bar').style.background='linear-gradient(90deg,var(--org),'+s+')'}
-function toRun(){$('#viewConfig').style.display='none';$('#viewRun').style.display='block';$('#btnBack').style.display='inline-flex';$('#totSet').textContent=cfg.s;renderTimer()}
-function renderTimer(){const left=(endTs-Date.now())/1000;$('#timer').textContent=fmt(left);const dur=st==='work'?cfg.wk:st==='rest'?cfg.r:(st==='warm'?cfg.w*60:cfg.wk);$('#bar').style.width=Math.max(0,Math.min(100,(1-left/dur)*100))+'%';
+function setPhase(cl,txt){$('#phaseTag').className='tag '+cl;$('#phaseTag').textContent=txt;$('#timer').className='timer '+cl;
+const s=cl==='work'?'var(--red)':cl==='await'?'var(--vio)':'var(--teal)';$('#bar').style.background='linear-gradient(90deg,var(--org),'+s+')'}
+function toRun(){$('#viewConfig').style.display='none';$('#viewRun').style.display='block';$('#btnBack').style.display='inline-flex';
+$('#btnSkip').style.display=cfg.w>0?'':'none';$('#totSet').textContent=cfg.s;renderTimer()}
+function renderTimer(){const left=(endTs-Date.now())/1000;$('#timer').textContent=fmt(left);
+const dur=st==='work'?cfg.wk:st==='rest'?cfg.r:(st==='warm'?cfg.w*60:cfg.wk);
+$('#bar').style.width=Math.max(0,Math.min(100,(1-left/dur)*100))+'%';
+const secLeft=Math.ceil(left);
+if(st==='work'||st==='rest'){if(secLeft>=1&&secLeft<=5&&secLeft!==lastCount){lastCount=secLeft;speak(String(secLeft),true)}}
+else{lastCount=0}
 if(st==='warm'){$('#phaseText').textContent='热身 · 轻划保持桨频 18-20';$('#curSet').textContent=0;$('#actHint').style.display='none';$('#btnActivate').style.display='none'}
 else if(st==='work'){$('#phaseText').textContent='第 '+cur+' 组 · 全力冲刺';$('#curSet').textContent=cur;$('#actHint').style.display='none';$('#btnActivate').style.display='none';$('#timer').classList.toggle('urgent',left<=5)}
 else if(st==='rest'){$('#phaseText').textContent='第 '+cur+' 组休息 · 轻松划恢复';$('#curSet').textContent=cur;$('#actHint').style.display='none';$('#btnActivate').style.display='none'}
 else if(st==='await'){$('#phaseText').textContent='等待激活 · 心率恢复后开始';$('#curSet').textContent=cur;$('#actHint').style.display='block';$('#nextSet').textContent=cur+1;$('#btnActivate').style.display='block'}
 $('#btnSkip').style.display=(st==='warm')?'':'none'}
-function go(next,cl,lab){st=next;setPhase(cl,lab);endTs=Date.now()+(next==='warm'?cfg.w*60:next==='work'?cfg.wk:next==='rest'?cfg.r:0)*1000;stopTick();tick=setInterval(()=>{if(Date.now()>=endTs){onEnd()}else{renderTimer()}},100);renderTimer();if(next==='work'){speak('第 '+cur+' 组，开始')}}
+function go(next,cl,lab){st=next;lastCount=0;setPhase(cl,lab);
+endTs=Date.now()+(next==='warm'?cfg.w*60:next==='work'?cfg.wk:next==='rest'?cfg.r:0)*1000;
+stopTick();tick=setInterval(()=>{if(Date.now()>=endTs){onEnd()}else{renderTimer()}},100);renderTimer();
+if(next==='work'){speak('第 '+cur+' 组，开始')}}
 function beginWork(n,act){cur=n;if(act)actArr[cur]=act;go('work','work','第 '+cur+' 组 · 冲刺')}
 function startNextSet(act){if(st!=='await')return;beginWork(cur+1,act)}
 function onEnd(){
 if(st==='warm'){beginWork(1)}
-else if(st==='work'){if(cur>=cfg.s){finish(true)}else{go('rest','rest','休息')}}
+else if(st==='work'){if(cur>=cfg.s){speak('训练完成');finish(true)}else{go('rest','rest','休息')}}
 else if(st==='rest'){lastRest=Math.round((Date.now()-(endTs-cfg.r*1000))/1000);restArr[cur-1]=lastRest;go('await','await','等待激活')}
 else if(st==='await'){renderTimer()}}
-$('#btnStart').addEventListener('click',()=>{cfg=rec();cur=0;restArr=[];actArr=[];if(cfg.w>0){go('warm','warm','热身')}else{beginWork(1)}toRun()});
+$('#btnStart').addEventListener('click',()=>{cfg=rec();cur=0;restArr=[];actArr=[];lastCount=0;
+if(cfg.w>0){go('warm','warm','热身')}else{beginWork(1)}toRun()});
 $('#btnSkip').addEventListener('click',()=>{if(st==='warm'){beginWork(1)}});
 $('#btnActivate').addEventListener('click',()=>startNextSet('按钮'));
 function finish(ok){stopTick();const d=cfg,recs=hist.slice();let done=cur;
 if(!ok){if(st==='work')done=Math.max(0,cur-1);else if(st==='warm')done=0;else done=cur}
-const rests=(restArr||[]).slice(0,Math.max(0,done-1));const acts=(actArr||[]).slice(1,done);
+const rests=(restArr||[]).slice(0,Math.max(0,done-1));const acts=(actArr||[]).slice(0,Math.max(0,done-1));
 let totalSec=0;if(d.w>0)totalSec+=d.w*60;totalSec+=d.wk*done;rests.forEach(x=>totalSec+=(x||0));
 recs.push({d:new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}),n:P[plan].n,done,tot:d.s,ok,total:fmt(totalSec).replace(':','分')+'秒',wk:d.wk,r:d.r,rests,acts});
 hist=recs;try{localStorage.setItem('rit_hist',JSON.stringify(hist))}catch(e){}renderHist();$('#btnBack').click()}
 $('#btnCancel').addEventListener('click',()=>{if(!cfg)return;stopTick();st='idle';$('#viewRun').style.display='none';$('#viewConfig').style.display='block';$('#btnBack').style.display='none'});
 $('#btnBack').addEventListener('click',()=>{stopTick();st='idle';$('#viewRun').style.display='none';$('#viewConfig').style.display='block';$('#btnBack').style.display='none'});
 $('#btnEnd').addEventListener('click',()=>{finish(false)});
-let shakeT=0;window.addEventListener('devicemotion',e=>{if(st!=='await')return;const a=e.accelerationIncludingGravity||{};const mag=Math.abs((a.x||0)+(a.y||0)+(a.z||0)-9.8);const thr={low:2.2,mid:3.2,high:4.2}[sens]||3.2;if(mag>thr&&Date.now()-shakeT>900){shakeT=Date.now();startNextSet('拍击')}});
+let shakeT=0;window.addEventListener('devicemotion',e=>{if(st!=='await')return;const a=e.accelerationIncludingGravity||{};
+const mag=Math.abs((a.x||0)+(a.y||0)+(a.z||0)-9.8);const thr={low:2.2,mid:3.2,high:4.2}[sens]||3.2;
+if(mag>thr&&Date.now()-shakeT>900){shakeT=Date.now();startNextSet('拍击')}});
 let SR=window.SpeechRecognition||window.webkitSpeechRecognition,sr=null,srLive=false,srFail=0;
 function startSR(){if(!SR||srLive)return;try{sr.start();srLive=true;voiceUI(true)}catch(e){srLive=false;setTimeout(startSR,800)}}
 if(SR){sr=new SR();sr.lang='zh-CN';sr.continuous=true;sr.interimResults=false;
-sr.onresult=e=>{if(st!=='await')return;const rs=e.results;if(!rs.length)return;const r=rs[rs.length-1];if(!r.isFinal)return;const t=r[0].transcript.replace(/\s/g,'');if(/下一组|开始|8848|八个八|八八四八/.test(t)){startNextSet('语音')}};
+sr.onresult=e=>{if(st!=='await')return;const rs=e.results;if(!rs.length)return;const r=rs[rs.length-1];if(!r.isFinal)return;
+const t=r[0].transcript.replace(/\s/g,'');if(/下一组|开始|8848|八个八|八八四八/.test(t)){startNextSet('语音')}};
 sr.onend=()=>{srLive=false;srFail=0;voiceUI(false);setTimeout(startSR,400)};
-sr.onerror=e=>{srLive=false;voiceUI(false);if(e.error==='not-allowed'||e.error==='service-not-allowed'){voiceUI(null,'语音识别不可用：麦克风权限被拒')}else{srFail++;if(srFail>6){voiceUI(null,'语音识别反复出错，已停用 · 可用拍击/按钮')}else{setTimeout(startSR,600)}}};
+sr.onerror=e=>{srLive=false;voiceUI(false);
+if(e.error==='not-allowed'||e.error==='service-not-allowed'){voiceUI(null,'语音识别不可用：麦克风权限被拒')}
+else{srFail++;if(srFail>6){voiceUI(null,'语音识别反复出错，已停用 · 可用拍击/按钮')}else{setTimeout(startSR,600)}}};
 startSR();}else{voiceUI(null,'当前浏览器不支持语音识别 · 可用拍击/按钮')}
 renderSum();renderHist();
 </script>
