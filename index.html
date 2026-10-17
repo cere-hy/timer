@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html data-page-node-id="dA17szVdLLuugYVYLPTrg3" lang="zh-CN">
-<head data-page-node-id="5QiGo7CSDstODTkdBFh0oI">
-<script data-page-node-id="XVJQvP9I1uWhIpEX2A5hLQ" src="/page/page_comm/inject.js"></script>
-<meta data-page-node-id="SHs96iGZTWMMihEQefFtCe" charset="UTF-8">
-<meta data-page-node-id="M0zKpEQNrsddOoupFl3j22" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" name="viewport">
-<meta data-page-node-id="18GJmeApkQlpLU1GSJdqYK" content="#0b1120" name="theme-color">
-<meta data-page-node-id="gIh2xx2cjiIrk90ewqcKiV" content="yes" name="apple-mobile-web-app-capable">
-<title data-page-node-id="V3nLw5qmKS1rkveutAzoWy" data-pnid-children="omV2d7BTvosG000gmuVLV7">划船间歇冲刺计时器 v8</title>
-<style data-page-node-id="SsWYFgY1XIaiRFxWnOUS4A" data-pnid-children="KdNd14G0kA41xinbkLZ4Ix">
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#0b1120">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>划船间歇冲刺计时器 V9</title>
+<style>
 :root{--bg:#0b1120;--bg2:#111a2e;--card:rgba(255,255,255,.05);--card2:rgba(255,255,255,.08);
 --bd:rgba(255,255,255,.09);--txt:#f2f4f8;--sub:rgba(255,255,255,.55);--dim:rgba(255,255,255,.32);
 --org:#F3A04C;--org2:#E58522;--red:#FF5A4A;--teal:#2BD9C4;--vio:#A98BEF;--ok:#40B43E;--warn:#EBA400}
@@ -109,75 +108,74 @@ color:var(--vio);font-size:17px;font-weight:600;letter-spacing:1px;animation:bre
 .demo{text-align:center;font-size:10px;color:var(--dim);margin-top:14px;line-height:1.6}
 </style>
 </head>
-<body data-page-node-id="ZrSkSbE30vIFpwxc3Izfkf">
-<div data-page-node-id="wPUim4OjbQIGdjXS0VzhEF" id="app">
-<header data-page-node-id="cAQDL6Lhj2tPr6FukuUZer">
-  <div data-page-node-id="1CWAs9sFBvrC4uM0tchAF1" class="brand"><h1 data-page-node-id="D802o49FifcD9SPM5GpW6k"><!--pnid:hzuaOe8jR49F6uMrgaoK4B-->划船间歇冲刺计时器 <span data-page-node-id="buKeOhsdV5PUzMPajDw5TK" style="font-size:10px; font-weight:400; color:var(--sub); letter-spacing:.5px; vertical-align:middle"><!--pnid:1ntUV2WtbxK2n07Xxd3yGL-->V8</span></h1><p data-page-node-id="D4uoJkbxjWtBWlls6fn5qb"><!--pnid:W2B4ZENIx24Zv41Pt47maq-->ROWING·INTERVAL·SPRINT</p></div>
-  <div data-page-node-id="ZJ3nVxDngikeoxjtqHP6TZ" class="toolbar">
-    <button data-page-node-id="EHwkkTgPdFzfVc2dinkw6l" class="tbtn" id="btnAwake"><!--pnid:rZ6cy7KsE7X7R3TXVd4PUM-->常亮待机</button>
-    <button data-page-node-id="bFcWQZw3nLSBsdTBI8uBuR" class="tbtn" id="btnExport"><!--pnid:3CRhf2aKGgQ7JLsauscXRa-->下载</button>
-    <button data-page-node-id="ItgZhKq75vFlmWbxCiio6J" class="tbtn" id="btnBack" style="display:none"><!--pnid:jEtKYdYo6OKm5clTlSKXGH-->返回</button>
+<body>
+<div id="app">
+<header>
+  <div class="brand"><h1>划船间歇冲刺计时器 <span style="font-size:10px;font-weight:400;color:var(--sub);letter-spacing:.5px;vertical-align:middle">V9</span></h1><p>ROWING·INTERVAL·SPRINT</p></div>
+  <div class="toolbar">
+    <button class="tbtn" id="btnAwake">常亮待机</button>
+    <button class="tbtn" id="btnExport">下载</button>
+    <button class="tbtn" id="btnBack" style="display:none">返回</button>
   </div>
 </header>
-<section data-page-node-id="XaXKu9Fz8Lw03t8Z6t19N0" id="viewConfig">
-  <div data-page-node-id="2TZo7X16VJFd1tCHtaPRDS" class="card">
-    <p data-page-node-id="mq8y3vEwvBEKOlcKM9HwJm" class="sec"><!--pnid:MGmIzYTPlforaCGkYqiPcV-->训练计划</p>
-    <div data-page-node-id="ozVbjNCTAy4Yu7zJ4KIt7l" class="presets">
-      <button data-page-node-id="vqqR6Njlc435YKV7SvvSw4" class="preset sel" data-p="0"><b data-page-node-id="bVCWD2FkAKdI7B2C8MZs8E"><!--pnid:dNUTITPSRblHHlMS0ttGAN-->入门冲刺</b><span data-page-node-id="Wi5eJBvs9VKiyQelXq7zHf"><!--pnid:A8eRGOou3s2WvRhKcDOv7w-->60s 冲刺 · 60s 休息 · 5 组</span></button>
-      <button data-page-node-id="R2m6yNXvlA3PZvTW95zTGx" class="preset" data-p="1"><b data-page-node-id="kigQtqiwPGI2ZSwUArY438"><!--pnid:lLJOloDoFJ9OyEmzR6QJW4-->距离冲刺</b><span data-page-node-id="K47RMb4T3gwiCYi3lJhKJR"><!--pnid:7MmX6bI4mxkxvEjcFgdcrJ-->250m 全力 · 休 3 分 · 6 组</span></button>
-      <button data-page-node-id="1YINzmRKdfJF6VOEKEgJ0e" class="preset" data-p="2"><b data-page-node-id="v07dpDCpXyH3JgjkPkpgJS"><!--pnid:rezunUQMxuKsTVpeQbSxZM-->进阶冲刺</b><span data-page-node-id="gajUQdGXn6HE6Ge3f9FMts"><!--pnid:6ORpLgOr2MRlUBG0hX7zwp-->40s 全力 · 休 2 分 · 8 组</span></button>
+<section id="viewConfig">
+  <div class="card">
+    <p class="sec">训练计划</p>
+    <div class="presets">
+      <button class="preset sel" data-p="0"><b>入门冲刺</b><span>60s 冲刺 · 60s 休息 · 5 组</span></button>
+      <button class="preset" data-p="1"><b>距离冲刺</b><span>250m 全力 · 休 3 分 · 6 组</span></button>
+      <button class="preset" data-p="2"><b>进阶冲刺</b><span>40s 全力 · 休 2 分 · 8 组</span></button>
     </div>
-    <div data-page-node-id="4GdqCId6vlIKbObeI40J7N" class="grid" style="margin-top:12px">
-      <div data-page-node-id="AHEY69lP9nGiS72DopPGYY" class="fld"><label data-page-node-id="sNlhtBeFvGGXl05V02ftQE"><!--pnid:krxM5NFVEDrlWwa0crTUyp-->热身（分钟）</label><input data-page-node-id="v2eTGzBYXuvPT0O89HwK9Y" id="inWarm" min="0" step="0.1" type="number" value="5"></div>
-      <div data-page-node-id="kLjyONA5dEPqwuDXZWorON" class="fld"><label data-page-node-id="t5WW6MQ3PaeVJSdxmvSttO"><!--pnid:5v9DfLh9swG5BxzD3i4i1V-->每组冲刺（秒）</label><input data-page-node-id="h702jiItOg0JIEU9PWDBwA" id="inWork" min="5" step="1" type="number" value="60"></div>
-      <div data-page-node-id="djZkeOUNOwrzHciKhoZLvK" class="fld"><label data-page-node-id="M7p93nRmx0Ct0q3pucSRq9"><!--pnid:53B5s2KotgfR56rnJSH9XO-->组间休息（秒）</label><input data-page-node-id="ZE0DOslcIJ5wqb4Sh1rfv0" id="inRest" min="5" step="1" type="number" value="60"></div>
-      <div data-page-node-id="NqPRdyGswBJGGWqkKuecvI" class="fld"><label data-page-node-id="pJag9kHAllz4ByCfeoh3gu"><!--pnid:JDDdmrmPrtGZZjtEPDnxk5-->组数</label><input data-page-node-id="XqMPoANYO7M3mQ2XNyNHsh" id="inSets" max="20" min="1" step="1" type="number" value="5"></div>
+    <div class="grid" style="margin-top:12px">
+      <div class="fld"><label>热身（分钟）</label><input id="inWarm" type="number" min="0" step="0.1" value="5"></div>
+      <div class="fld"><label>每组冲刺（秒）</label><input id="inWork" type="number" min="5" step="1" value="60"></div>
+      <div class="fld"><label>组间休息（秒）</label><input id="inRest" type="number" min="5" step="1" value="60"></div>
+      <div class="fld"><label>组数</label><input id="inSets" type="number" min="1" max="20" step="1" value="5"></div>
     </div>
-    <div data-page-node-id="zSyN0QQFATqTDFwDvD9Vhc" class="summary" id="sum"></div>
-    <div data-page-node-id="cLtHjpjIILVjqC8TkwPCGm" class="hint"><!--pnid:0uzPPAdZ7GxeSs5aO3jvcq-->🎙 语音口令：下一组 / 开始 / 8848 · 拍击手机 / 摇晃 也可激活</div>
-    <div data-page-node-id="fcUxyByXVAfhSbqRiitYoS" class="vst" id="vst"><span data-page-node-id="IMWNXWDz0PIYqi5XaCXDcn" class="dot"></span><span data-page-node-id="Ex817WW4JE86nRZEjF6iXw" id="vstText"><!--pnid:O2KXl58Utct9GW5u1HkUri-->语音识别：启动中…</span></div>
-    <div data-page-node-id="CQQGKMTIDDS86JXrVroYG6" class="vtest">
-      <label data-page-node-id="ra9BZbTNVAYkJHJ6v9DlfV"><!--pnid:NvexZGID9nYnyymPkrBlKR-->语音播报测试（每组冲刺开始时播报「第 X 组」）</label>
-      <button data-page-node-id="MQ5H7lmFFyjiOIYyzuawL8" id="btnTestVoice"><!--pnid:TkhxqzFIi2xUkkIsVZBTHo-->测试语音</button>
+    <div class="summary" id="sum"></div>
+    <div class="hint">🎙 语音口令：下一组 / 开始 / 8848 · 拍击手机 / 摇晃 也可激活</div>
+    <div class="vst" id="vst"><span class="dot"></span><span id="vstText">语音识别：启动中…</span></div>
+    <div class="vtest">
+      <label>语音播报测试（每组冲刺开始时播报「第 X 组」）</label>
+      <button id="btnTestVoice">测试语音</button>
     </div>
-    <div data-page-node-id="WEDxijIfclIb3qXSZjp7p4" class="sens">
-      <label data-page-node-id="E82v8yoetY1DzLtq9Cdeth"><!--pnid:UkO74TFpKgwaEVcszms2hN-->拍击灵敏度</label>
-      <div data-page-node-id="SQlvDfCxvL374IFTLwqA9p" class="seg">
-        <button data-page-node-id="J6cRktAUpNYCbCbXT2WWSl" data-s="low"><!--pnid:8la0Djc1ZEp27HVuGlYzq8-->灵敏</button><button data-page-node-id="Ell0qBaTdgDSD8Rn27UWF3" class="sel" data-s="mid"><!--pnid:IjrIm5enUUIfdvOkmS3pFy-->标准</button><button data-page-node-id="Jo5NJxznekDTslWDvuLxp7" data-s="high"><!--pnid:XgM3ll5XqiX6D7WlR5SL35-->迟钝</button>
+    <div class="sens">
+      <label>拍击灵敏度</label>
+      <div class="seg">
+        <button data-s="low">灵敏</button><button data-s="mid" class="sel">标准</button><button data-s="high">迟钝</button>
       </div>
     </div>
-    <button data-page-node-id="5svTiS98dyRnJA7DyZhxR6" class="start" id="btnStart"><!--pnid:27tpWrV9HHYazMObRQshDs-->开始训练</button>
+    <button class="start" id="btnStart">开始训练</button>
   </div>
-  <div data-page-node-id="n7RSxJ0Sv3KSqb73w9u87l" class="card">
-    <p data-page-node-id="8I1gMfIDqzguWV7433FnWk" class="sec"><!--pnid:Qy1jj1zQFsYqFeNxwKLkXV-->历史记录</p>
-    <ul data-page-node-id="0Ed8yuCCXzCgSNycHRZDqH" class="hlist" id="hist"></ul>
-  </div>
-</section>
-<section data-page-node-id="5rN7uVje3gCJmCHVoNb0k3" id="viewRun">
-  <div data-page-node-id="EwpYtX6Ys1EVG5xZKiDXib" class="card">
-    <div data-page-node-id="bJttBDXqEHlt9K16u1EAO3" class="status"><span data-page-node-id="8XmmsOsCFDxNRMQS0NB5el" class="tag warm" id="phaseTag"><!--pnid:nI0XXtvniGJGFqVuqKpsVj-->热身</span><button data-page-node-id="GK4k4yUtO6vYYyjWrCde3A" class="cancel" id="btnCancel"><!--pnid:qzAZ7ZAV077nJVtqsoq8cz-->结束训练</button></div>
-    <div data-page-node-id="KlZGoyfxoYWXpK5kq5Qfx7" class="timerwrap">
-      <div data-page-node-id="M66NS6ln8DfWt3oYg8fTF4" class="timer warm" id="timer"><!--pnid:ftngydONwDIhAIJPiV82pk-->05:00</div>
-      <div data-page-node-id="ewKKAcI8pO82fiZ3Gf0ia5" class="phase" id="phaseText"><!--pnid:RmyUmiSicnaISJRDsjUcYT-->热身 · 轻划保持桨频 18-20</div>
-    </div>
-    <div data-page-node-id="PXEHqIvSU8KF6DtQqovAt4" class="bar"><i data-page-node-id="PWD19O3wsgUc2Uv9C6lCWB" id="bar"></i></div>
-    <div data-page-node-id="1sB2tT6I1SZ4pNM7GDEBlV" class="prog"><span data-page-node-id="hTFpFsIgw4bvdBq0ZiRRFO"><!--pnid:4zG3Dfvk5XRje3XM8Clo5r-->第 <b data-page-node-id="5o5iMZywqR1LrEc3LiK2A9" id="curSet"><!--pnid:H6luzpnxGucTkZ5d6Oy3oJ-->0</b><!--pnid:qe9zG4WvEc2zlTVZ5S0mXw--> 组</span><span data-page-node-id="ROutFycKE1yZHHaFyAlD27"><!--pnid:0XXJSlCWPnbMPe3NcFI1jT-->共 <b data-page-node-id="FeSWlIBpWEtdwkldIblnVT" id="totSet"><!--pnid:L7Xhasg9JaozDHIeK8rm09-->5</b><!--pnid:MjCUT9dULFmOp6DWMWk25z--> 组</span></div>
-    <div data-page-node-id="LXI9ra4jirFCjTzrNPbqt0" class="acthint" id="actHint" style="display:none"><!--pnid:xPj1J5hXcOgpeQn9OZ0u45-->休息结束 · 请说口令 <b data-page-node-id="uFxhYVD0FrnlVxNsmH8dRK"><!--pnid:f80bD8mvIjwaJ9BcmSSk2x-->「下一组 / 开始 / 8848」</b><br data-page-node-id="ssjZESUN2y2CKiKnqgNh7V"><!--pnid:ZcfGP1QD6kZvecN4zuj9a7-->或拍击手机 / 点击下方按钮开始第 <b data-page-node-id="c4pnldjxBxQkKXKBWrS2kh" id="nextSet"><!--pnid:eDVx2tHvI2wBVo3n1AMSRW-->2</b><!--pnid:KiEFTDsHoz0DrIDQbUmApI--> 组</div>
-    <button data-page-node-id="gPTSqc388VTqb7oM3TaXb2" class="big" id="btnActivate" style="display:none"><!--pnid:1IbeDKZcaSFjU5xASkdkPA-->开始下一组</button>
-    <div data-page-node-id="JGkDjbwdQMTfa8GtBATCH7" class="runbtns">
-      <button data-page-node-id="K2TMXKkyRyqN9YIS4FXqoz" class="skipwarm" id="btnSkip"><!--pnid:r8kbuNESy6e3OR0zldVSe3-->跳过热身</button>
-      <button data-page-node-id="UHkgtE2wSkVuCLBH26bhzS" class="endall" id="btnEnd"><!--pnid:3uw4RzYP9MQpGEwTIhrBXA-->提前结束</button>
-    </div>
+  <div class="card">
+    <p class="sec">历史记录</p>
+    <ul class="hlist" id="hist"></ul>
   </div>
 </section>
-<div data-page-node-id="thVrRbdd7i3dMvqChNxxf4" class="demo" id="demo"><!--pnid:Xaa4bJdNcaWTJxcTRJMZQt-->· 版本 v8 · 语音识别自动重启修复 · 每组冲刺播报「第 X 组」 · 配色美化</div>
+<section id="viewRun">
+  <div class="card">
+    <div class="status"><span class="tag warm" id="phaseTag">热身</span><button class="cancel" id="btnCancel">结束训练</button></div>
+    <div class="timerwrap">
+      <div class="timer warm" id="timer">05:00</div>
+      <div class="phase" id="phaseText">热身 · 轻划保持桨频 18-20</div>
+    </div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="prog"><span>第 <b id="curSet">0</b> 组</span><span>共 <b id="totSet">5</b> 组</span></div>
+    <div class="acthint" id="actHint" style="display:none">休息结束 · 请说口令 <b>「下一组 / 开始 / 8848」</b><br>或拍击手机 / 点击下方按钮开始第 <b id="nextSet">2</b> 组</div>
+    <button class="big" id="btnActivate" style="display:none">开始下一组</button>
+    <div class="runbtns">
+      <button class="skipwarm" id="btnSkip">跳过热身</button>
+      <button class="endall" id="btnEnd">提前结束</button>
+    </div>
+  </div>
+</section>
+<div class="demo" id="demo">· 版本 V9 · 修复组号递增与重复播报 · 语音识别自动重启 · 每组冲刺播报「第 X 组」</div>
 </div>
-<script data-page-node-id="m5PsZ9a5EaOn5NWcpTA0tE" data-pnid-children="gIh26KUg6JHIRpG8QeI0Wx">
+<script>
 const $=s=>document.querySelector(s);
 const P=[{w:5,wk:60,r:60,s:5,n:'入门冲刺'},{w:5,wk:110,r:180,s:6,n:'距离冲刺 250m'},{w:5,wk:40,r:120,s:8,n:'进阶冲刺'}];
 let plan=0,sens='mid',hist=[];
 try{hist=JSON.parse(localStorage.getItem('rit_hist')||'[]')}catch(e){}
-if(!hist.length){hist=[{d:'10月15日 19:16',n:'入门冲刺',done:5,tot:5,ok:true,total:'15分12秒',wk:60,r:60,rests:[68,72,96,75],acts:['语音','语音','语音','拍击']},{d:'10月13日 21:01',n:'入门冲刺',done:2,tot:6,ok:false,total:'34秒',wk:10,r:10,rests:[20],acts:['语音']}]}
 const rec=()=>{const p=P[plan];return{w:Math.max(0,parseFloat($('#inWarm').value||0)),wk:Math.max(5,parseInt($('#inWork').value)||60),r:Math.max(5,parseInt($('#inRest').value)||60),s:Math.max(1,Math.min(20,parseInt($('#inSets').value)||5))}};
 function fmt(sec){sec=Math.max(0,Math.ceil(sec));return String(Math.floor(sec/60)).padStart(2,'0')+':'+String(sec%60).padStart(2,'0')}
 function speak(text){try{const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=1;u.pitch=1;const vs=speechSynthesis.getVoices();const v=vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('zh')===0)||vs.find(x=>x.lang&&x.lang.toLowerCase().indexOf('cmn')===0);if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}}
@@ -186,7 +184,7 @@ function renderSum(){const c=rec();$('#sum').innerHTML='';const a=[['热身',c.w
 function renderHist(){const ul=$('#hist');ul.innerHTML='';if(!hist.length){ul.innerHTML='<li class="hrow" style="color:var(--dim);font-size:11px">暂无记录</li>';return}
 hist.slice().reverse().forEach(h=>{const li=document.createElement('li');li.className='hrow';
 const pct=Math.round(h.done/h.tot*100);
-let setHtml='';h.rests.forEach((r,i)=>{setHtml+='<em>第'+(i+1)+'组休 <b>'+r+'</b>s <span class='+(h.acts[i]==='语音'?'v':h.acts[i]==='拍击'?'p':'')+'>'+(h.acts[i]||'-')+'</span></em>'});
+let setHtml='';(h.rests||[]).forEach((r,i)=>{setHtml+='<em>第'+(i+1)+'组休 <b>'+r+'</b>s <span class='+((h.acts&&h.acts[i]==='语音')?'v':(h.acts&&h.acts[i]==='拍击')?'p':'')+'>'+((h.acts&&h.acts[i])||'-')+'</span></em>'});
 li.innerHTML='<div class="htop"><b>'+h.n+'</b><span class="htag '+(h.ok?'ok':'ab')+'">'+(h.ok?'完成 ':'提前结束 ')+h.done+'/'+h.tot+' · '+pct+'%</span></div>'+
 '<div class="hmid"><span>'+h.d+'</span><span>总时长 <i>'+h.total+'</i></span><span>训练 <i>'+h.wk+'s</i> / 休息 <i>'+h.r+'s</i></span></div>'+
 '<div class="hset">'+setHtml+'</div>';ul.appendChild(li)})}
@@ -194,37 +192,45 @@ document.querySelectorAll('.preset').forEach(b=>b.addEventListener('click',()=>{
 ['inWarm','inWork','inRest','inSets'].forEach(id=>$('#'+id).addEventListener('input',renderSum));
 document.querySelectorAll('.seg button').forEach(b=>b.addEventListener('click',()=>{sens=b.dataset.s;document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('sel'));b.classList.add('sel')}));
 let wl=null;
-$('#btnAwake').addEventListener('click',async()=>{try{if(wl){await wl.release();wl=null;$('#btnAwake').classList.remove('on')}else if('wakeLock' in navigator){wl=await navigator.wakeLock.request('screen');$('#btnAwake').classList.add('on');wl.addEventListener('release',()=>{$('#btnAwake').classList.remove('on');wl=null})}else{$('#btnAwake').textContent='不支持'}}catch(e){$('#btnAwake').textContent='失败'}});
+$('#btnAwake').addEventListener('click',()=>{const on=$('#btnAwake').classList.toggle('on');if(on){if('wakeLock' in navigator){navigator.wakeLock.request('screen').then(l=>{wl=l}).catch(()=>$('#btnAwake').classList.remove('on'))}}else if(wl){try{wl.release()}catch(e){};wl=null}});
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&$('#btnAwake').classList.contains('on')&&'wakeLock' in navigator){navigator.wakeLock.request('screen').then(l=>wl=l).catch(()=>{})}});
 $('#btnTestVoice').addEventListener('click',()=>{speak('第 1 组，开始');setTimeout(()=>speak('第 2 组，开始'),1600)});
-$('#btnExport').addEventListener('click',()=>{let csv='日期,计划,完成组数,总组数,完成率,总时长,每组训练s,组间休息s,各组实际休息s,激活方式\n';hist.forEach(h=>{csv+=[h.d,h.n,h.done,h.tot,h.ok?'是':'否',h.total,h.wk,h.r,h.rests.join('/'),h.acts.join('/')].join(',')+'\n'});try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='rowing-history.csv';a.click()}catch(e){} });
-let st='idle',cfg=null,endTs=0,cur=0,lastRest=0,lastAct='',tick=null;
+$('#btnExport').addEventListener('click',()=>{let csv='日期,计划,完成组数,总组数,完成率,总时长,每组训练s,组间休息s,各组实际休息s,激活方式\n';hist.forEach(h=>{csv+=[h.d,h.n,h.done,h.tot,h.ok?'是':'否',h.total,h.wk,h.r,(h.rests||[]).join('/'),(h.acts||[]).join('/')].join(',')+'\n'});try{const b=new Blob([csv],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='rowing-history.csv';a.click()}catch(e){}});
+let st='idle',cfg=null,endTs=0,cur=0,lastRest=0,tick=null,restArr=[],actArr=[];
 function stopTick(){if(tick){clearInterval(tick);tick=null}}
 function setPhase(cl,txt){$('#phaseTag').className='tag '+cl;$('#phaseTag').textContent=txt;$('#timer').className='timer '+cl;const s=cl==='work'?'var(--red)':cl==='await'?'var(--vio)':'var(--teal)';$('#bar').style.background='linear-gradient(90deg,var(--org),'+s+')'}
-function toRun(){$('#viewConfig').style.display='none';$('#viewRun').style.display='block';$('#btnBack').style.display='inline-flex';$('#btnSkip').style.display=cfg.w>0?'':'none';$('#totSet').textContent=cfg.s;renderTimer()}
+function toRun(){$('#viewConfig').style.display='none';$('#viewRun').style.display='block';$('#btnBack').style.display='inline-flex';$('#totSet').textContent=cfg.s;renderTimer()}
 function renderTimer(){const left=(endTs-Date.now())/1000;$('#timer').textContent=fmt(left);const dur=st==='work'?cfg.wk:st==='rest'?cfg.r:(st==='warm'?cfg.w*60:cfg.wk);$('#bar').style.width=Math.max(0,Math.min(100,(1-left/dur)*100))+'%';
 if(st==='warm'){$('#phaseText').textContent='热身 · 轻划保持桨频 18-20';$('#curSet').textContent=0;$('#actHint').style.display='none';$('#btnActivate').style.display='none'}
 else if(st==='work'){$('#phaseText').textContent='第 '+cur+' 组 · 全力冲刺';$('#curSet').textContent=cur;$('#actHint').style.display='none';$('#btnActivate').style.display='none';$('#timer').classList.toggle('urgent',left<=5)}
-else if(st==='rest'){$('#phaseText').textContent='休息 · 轻松划恢复';$('#curSet').textContent=cur;$('#actHint').style.display='none';$('#btnActivate').style.display='none'}
+else if(st==='rest'){$('#phaseText').textContent='第 '+cur+' 组休息 · 轻松划恢复';$('#curSet').textContent=cur;$('#actHint').style.display='none';$('#btnActivate').style.display='none'}
 else if(st==='await'){$('#phaseText').textContent='等待激活 · 心率恢复后开始';$('#curSet').textContent=cur;$('#actHint').style.display='block';$('#nextSet').textContent=cur+1;$('#btnActivate').style.display='block'}
 $('#btnSkip').style.display=(st==='warm')?'':'none'}
 function go(next,cl,lab){st=next;setPhase(cl,lab);endTs=Date.now()+(next==='warm'?cfg.w*60:next==='work'?cfg.wk:next==='rest'?cfg.r:0)*1000;stopTick();tick=setInterval(()=>{if(Date.now()>=endTs){onEnd()}else{renderTimer()}},100);renderTimer();if(next==='work'){speak('第 '+cur+' 组，开始')}}
+function beginWork(n,act){cur=n;if(act)actArr[cur]=act;go('work','work','第 '+cur+' 组 · 冲刺')}
+function startNextSet(act){if(st!=='await')return;beginWork(cur+1,act)}
 function onEnd(){
-if(st==='warm'){go('work','work','第 1 组 · 冲刺')}
+if(st==='warm'){beginWork(1)}
 else if(st==='work'){if(cur>=cfg.s){finish(true)}else{go('rest','rest','休息')}}
-else if(st==='rest'){lastRest=Math.round((Date.now()-(endTs-cfg.r*1000))/1000);go('await','await','等待激活')}
+else if(st==='rest'){lastRest=Math.round((Date.now()-(endTs-cfg.r*1000))/1000);restArr[cur-1]=lastRest;go('await','await','等待激活')}
 else if(st==='await'){renderTimer()}}
-$('#btnStart').addEventListener('click',()=>{cfg=rec();cur=1;lastRest=0;if(cfg.w>0){go('warm','warm','热身')}else{go('work','work','第 1 组 · 冲刺')}toRun()});
-$('#btnSkip').addEventListener('click',()=>{if(st==='warm'){go('work','work','第 1 组 · 冲刺')}});
-$('#btnActivate').addEventListener('click',()=>{if(st!=='await')return;lastAct='按钮';go('work','work','第 '+cur+' 组 · 冲刺')});
-function finish(ok){stopTick();const d=cfg,recs=hist.slice();let totalSec=0;if(d.w>0)totalSec+=d.w*60;totalSec+=d.wk*d.s+(lastRest||0);recs.push({d:new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}),n:P[plan].n,done:cur,tot:d.s,ok,total:fmt(totalSec).replace(':','分')+'秒',wk:d.wk,r:d.r,rests:d.rests||[],acts:d.acts||[]});hist=recs;try{localStorage.setItem('rit_hist',JSON.stringify(hist))}catch(e){}renderHist();$('#btnBack').click()}
+$('#btnStart').addEventListener('click',()=>{cfg=rec();cur=0;restArr=[];actArr=[];if(cfg.w>0){go('warm','warm','热身')}else{beginWork(1)}toRun()});
+$('#btnSkip').addEventListener('click',()=>{if(st==='warm'){beginWork(1)}});
+$('#btnActivate').addEventListener('click',()=>startNextSet('按钮'));
+function finish(ok){stopTick();const d=cfg,recs=hist.slice();let done=cur;
+if(!ok){if(st==='work')done=Math.max(0,cur-1);else if(st==='warm')done=0;else done=cur}
+const rests=(restArr||[]).slice(0,Math.max(0,done-1));const acts=(actArr||[]).slice(1,done);
+let totalSec=0;if(d.w>0)totalSec+=d.w*60;totalSec+=d.wk*done;rests.forEach(x=>totalSec+=(x||0));
+recs.push({d:new Date().toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'}),n:P[plan].n,done,tot:d.s,ok,total:fmt(totalSec).replace(':','分')+'秒',wk:d.wk,r:d.r,rests,acts});
+hist=recs;try{localStorage.setItem('rit_hist',JSON.stringify(hist))}catch(e){}renderHist();$('#btnBack').click()}
 $('#btnCancel').addEventListener('click',()=>{if(!cfg)return;stopTick();st='idle';$('#viewRun').style.display='none';$('#viewConfig').style.display='block';$('#btnBack').style.display='none'});
 $('#btnBack').addEventListener('click',()=>{stopTick();st='idle';$('#viewRun').style.display='none';$('#viewConfig').style.display='block';$('#btnBack').style.display='none'});
-$('#btnEnd').addEventListener('click',()=>{if(st==='warm'&&cur<=1){finish(false);return}finish(false)});
-let shakeT=0;window.addEventListener('devicemotion',e=>{if(st!=='await')return;const a=e.accelerationIncludingGravity||{};const mag=Math.abs((a.x||0)+(a.y||0)+(a.z||0)-9.8);const thr={low:2.2,mid:3.2,high:4.2}[sens]||3.2;if(mag>thr&&Date.now()-shakeT>900){shakeT=Date.now();lastAct='拍击';go('work','work','第 '+cur+' 组 · 冲刺')}});
+$('#btnEnd').addEventListener('click',()=>{finish(false)});
+let shakeT=0;window.addEventListener('devicemotion',e=>{if(st!=='await')return;const a=e.accelerationIncludingGravity||{};const mag=Math.abs((a.x||0)+(a.y||0)+(a.z||0)-9.8);const thr={low:2.2,mid:3.2,high:4.2}[sens]||3.2;if(mag>thr&&Date.now()-shakeT>900){shakeT=Date.now();startNextSet('拍击')}});
 let SR=window.SpeechRecognition||window.webkitSpeechRecognition,sr=null,srLive=false,srFail=0;
 function startSR(){if(!SR||srLive)return;try{sr.start();srLive=true;voiceUI(true)}catch(e){srLive=false;setTimeout(startSR,800)}}
 if(SR){sr=new SR();sr.lang='zh-CN';sr.continuous=true;sr.interimResults=false;
-sr.onresult=e=>{if(st!=='await')return;const rs=e.results;if(!rs.length)return;const t=rs[rs.length-1][0].transcript.replace(/\s/g,'');if(/下一组|开始|8848|八个八|八八四八/.test(t)){lastAct='语音';go('work','work','第 '+cur+' 组 · 冲刺')}};
+sr.onresult=e=>{if(st!=='await')return;const rs=e.results;if(!rs.length)return;const r=rs[rs.length-1];if(!r.isFinal)return;const t=r[0].transcript.replace(/\s/g,'');if(/下一组|开始|8848|八个八|八八四八/.test(t)){startNextSet('语音')}};
 sr.onend=()=>{srLive=false;srFail=0;voiceUI(false);setTimeout(startSR,400)};
 sr.onerror=e=>{srLive=false;voiceUI(false);if(e.error==='not-allowed'||e.error==='service-not-allowed'){voiceUI(null,'语音识别不可用：麦克风权限被拒')}else{srFail++;if(srFail>6){voiceUI(null,'语音识别反复出错，已停用 · 可用拍击/按钮')}else{setTimeout(startSR,600)}}};
 startSR();}else{voiceUI(null,'当前浏览器不支持语音识别 · 可用拍击/按钮')}
